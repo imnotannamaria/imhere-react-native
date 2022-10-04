@@ -42,18 +42,6 @@ export default function Home() {
         </TouchableOpacity>
       </View>
 
-      {/* <ScrollView showsVerticalScrollIndicator={false}>
-        {
-          participants.map(participant => (
-            <Participant 
-              key={Math.random()}
-              name={participant}
-              onRemove={() => handleParticipantRemove(participant)}
-            />
-          ))
-        }
-      </ScrollView> */}
-
       <FlatList
         showsVerticalScrollIndicator={false}
         keyExtractor={item => Math.random().toString()}
@@ -64,6 +52,11 @@ export default function Home() {
             name={item}
             onRemove={() => handleParticipantRemove(item)}
           />
+        )}
+        ListEmptyComponent={() => (
+          <Text style={styles.listEmptyText}>
+            Ninguém por aqui, por que não adiciona alguém?
+          </Text>
         )}
       />
     </View>
