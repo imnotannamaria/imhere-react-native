@@ -1,17 +1,18 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { Text, TextInput, TouchableOpacity, View } from "react-native";
+import { FlatList, ScrollView, Text, TextInput, TouchableOpacity, View } from "react-native";
 import { Participant } from "../../components/Participant";
 import { styles } from "./styles";
 
 export default function Home() {
+  const participants = ['Anna', 'Joanne', 'Beyonce', 'Carol', 'Diana', 'Diana']
 
   function handleParticipantAdd() {
     console.log('Adicionou')
   }
 
-  function handleParticipantRemove() {
-    console.log('Removeu')
+  function handleParticipantRemove(name: string) {
+    console.log(`Você removeu o/a ${name}`)
   }
   
   return (
@@ -41,13 +42,29 @@ export default function Home() {
         </TouchableOpacity>
       </View>
 
-      <Participant 
-        name='Anna Maria' 
-        onRemove={handleParticipantRemove}
-      />
-      <Participant 
-        name='Na Maria' 
-        onRemove={handleParticipantRemove}
+      {/* <ScrollView showsVerticalScrollIndicator={false}>
+        {
+          participants.map(participant => (
+            <Participant 
+              key={Math.random()}
+              name={participant}
+              onRemove={() => handleParticipantRemove(participant)}
+            />
+          ))
+        }
+      </ScrollView> */}
+
+      <FlatList
+        showsVerticalScrollIndicator={false}
+        keyExtractor={item => Math.random().toString()}
+        data={participants}
+        renderItem={({ item }) => (
+          <Participant 
+            key={Math.random()}
+            name={item}
+            onRemove={() => handleParticipantRemove(item)}
+          />
+        )}
       />
     </View>
   )
