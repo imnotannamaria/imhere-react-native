@@ -5,7 +5,7 @@ import { Participant } from "../../components/Participant";
 import { styles } from "./styles";
 
 export default function Home() {
-  const participants = ['Anna', 'Joanne', 'Beyonce', 'Carol', 'Diana', 'Diana']
+  const participants = ['Anna', 'Joanne', 'Beyonce', 'Carol', 'Diana']
 
   function handleParticipantAdd() {
     console.log('Adicionou')
@@ -48,7 +48,6 @@ export default function Home() {
         data={participants}
         renderItem={({ item }) => (
           <Participant 
-            key={Math.random()}
             name={item}
             onRemove={() => handleParticipantRemove(item)}
           />
