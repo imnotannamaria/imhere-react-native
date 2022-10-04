@@ -1,6 +1,5 @@
-import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { FlatList, ScrollView, Text, TextInput, TouchableOpacity, View } from "react-native";
+import { FlatList, Text, TextInput, TouchableOpacity, View } from "react-native";
 import { Participant } from "../../components/Participant";
 import { styles } from "./styles";
 
@@ -17,7 +16,6 @@ export default function Home() {
   
   return (
     <View style={styles.container}>
-      <StatusBar translucent style="light"/>
       <Text style={styles.eventName}>
         Nome do evento
       </Text>
