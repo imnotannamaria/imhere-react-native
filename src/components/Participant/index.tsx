@@ -1,5 +1,6 @@
 import React from "react";
 import { Text, TouchableOpacity, View } from "react-native";
+import { Ionicons } from '@expo/vector-icons';
 import { styles } from "./styles";
 
 interface ParticipantProps {
@@ -14,7 +15,7 @@ export function Participant({ name, onRemove }: ParticipantProps) {
 
       <TouchableOpacity style={styles.button} onPress={onRemove}>
         <Text style={styles.buttonText}>
-          - 
+          <Ionicons name="person-remove-outline" size={24} />
         </Text>
       </TouchableOpacity>
     </View>
